@@ -1,0 +1,11 @@
+.img-card-product {
+  width: 100%;
+  object-fit:cover;
+  overflow: hidden;
+  p {
+    float: right;
+    font-size: 2rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+      }
+}
