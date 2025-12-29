@@ -183,8 +183,9 @@ if (document.body.classList.contains("cart")) {
           </div>
         </div>
      `;
-      $(`#cart`).append(htmlContent);
-      htmlContent = `<div class="card mt-4 mb-5">
+    });
+    $(`#cart`).append(htmlContent);
+    htmlContent = `<div class="card mt-4 mb-5">
                       <div class="card-body">
                           <div class="row align-items-center">
                               <div class="col-md-6">
@@ -198,8 +199,7 @@ if (document.body.classList.contains("cart")) {
                           </div>
                       </div>
                     </div>`;
-      $(`#cart`).append(htmlContent);
-    });
+    $(`#cart`).append(htmlContent);
   }
 }
 if (document.body.classList.contains("products")) {
