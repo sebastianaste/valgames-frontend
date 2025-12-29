@@ -133,9 +133,9 @@ if (document.body.classList.contains("cart")) {
     let sum = 0;
     cartData.forEach((product) => {
       sum += product.price * product.quantity;
+      $(`#cart`).append(`<h2 class="mb-3">Shopping Cart</h2>`);
 
       htmlContent += `<div class="mt-3" id="cart">
-          <h2 class="mb-3">Shopping Cart</h2>
 
           <div class="card mb-3 cart-item">
             <div class="row">
@@ -184,7 +184,9 @@ if (document.body.classList.contains("cart")) {
         </div>
      `;
     });
+
     $(`#cart`).append(htmlContent);
+
     htmlContent = `<div class="card mt-4 mb-5">
                       <div class="card-body">
                           <div class="row align-items-center">
