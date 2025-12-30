@@ -193,8 +193,8 @@ if (document.body.classList.contains("cart")) {
                               <div class="col-md-6">
                                   <h4 >Cart Total: <div class="text-success cart-total" >$${sum}</div></h4>
                               </div>
-                              <div class="col-md-6 text-center">
-                                  <button class="btn btn-dark px-5 text-end">
+                              <div class="col-md-6 text-end">
+                                  <button class="btn btn-dark px-5 mx-4 text-end">
                                       Checkout
                                   </button>
                               </div>
@@ -337,20 +337,34 @@ $(document).ready(function () {
     if (next < 0) {
       next = 0;
     } else {
+      $(this).parent("div").find(".qtty").text(next);
+
       var product = {};
       product.id = productId;
       product.name = name;
       product.price = price;
       product.description = description;
       product.quantity = next;
+
       addToCart(product);
-      $(this).parent("div").find(".qtty").text(next);
       $(this)
         .parent()
         .parent()
         .find(".sub-total")
         .text("$" + product.price * next);
       updateCartTotal();
+
+      if (next == 0) {
+        let cart = JSON.parse(localStorage.getItem("cart"));
+        if (cart && cart.products) {
+          cart.products = cart.products.filter(
+            (product) => product.id !== productId
+          );
+          console.log(cart.products);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateCartIcon(cart);
+        }
+      }
     }
   });
   $(document).on("click", ".add-to-cart", function () {
